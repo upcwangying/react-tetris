@@ -20,6 +20,20 @@ export default class Keyboard extends React.Component {
       }
     }, true);
 
+    // 解决issue: https://github.com/chvin/react-tetris/issues/24
+    document.addEventListener('touchend', (e) => {
+      if (e.preventDefault) {
+        e.preventDefault();
+      }
+    }, true);
+
+    // 阻止双指放大
+    document.addEventListener('gesturestart', (e) => {
+      if (e.preventDefault) {
+        event.preventDefault();
+      }
+    });
+
     document.addEventListener('mousedown', (e) => {
       if (e.preventDefault) {
         e.preventDefault();
